@@ -330,7 +330,6 @@ background-color: #ffffff00;
   border-radius: 12px;
   font-size: 28px;
   margin-bottom: 20px;
-  font-size: 20px;
 }
 
 .porque-texto p {
@@ -703,187 +702,213 @@ background-color: #ffffff00;
 }
 
 /* =========================
-   MOBILE FIRST – AJUSTE FINO
+   FIX IMAGENS MOBILE
 ========================= */
 @media (max-width: 768px) {
 
-  body {
+  /* REGRA GLOBAL: imagem nunca estoura */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* CONTAINERS QUE ESTAVAM VAZANDO */
+  .porque-imagem,
+  .vantagens-card,
+  .mv-card {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* REMOVE ALTURA FIXA NO MOBILE */
+  .porque-imagem {
+    height: auto;
+  }
+
+  .porque-imagem img {
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px; /* evita recorte estranho no mobile */
+  }
+
+  /* CARD COM IMAGEM DE FUNDO */
+  .vantagens-card {
+    height: auto;
+    min-height: 300px;
+  }
+
+  /* Garante que blobs não vazem */
+  .porque-imagem img,
+  .vantagens-card {
+    max-width: 100%;
+  }
+}
+/* =========================
+   MOBILE FINAL DEFINITIVO
+========================= */
+@media (max-width: 768px) {
+
+  /* ===== TRAVA GERAL ===== */
+  html, body {
+    width: 100%;
     overflow-x: hidden;
+  }
+
+  img, picture, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  * {
+    min-width: 0;
   }
 
   /* ===== HEADER ===== */
   header {
-    padding: 15px 20px;
+    justify-content: center;
+    padding: 14px 16px;
   }
 
   .logo {
+    position: relative;
+    left: 0;
     font-size: 20px;
   }
 
+  /* REMOVE MENU */
   .btn {
-    display: none; /* menu some no mobile (depois pode virar hamburguer) */
+    display: none !important;
   }
 
   /* ===== HERO ===== */
   .hero {
     height: auto;
-    padding: 140px 20px 80px;
+    padding: 130px 16px 70px;
   }
 
   .hero-content {
-    margin-left: 0;
-    max-width: 100%;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    padding: 0 10px;
     text-align: center;
   }
 
   .hero-content h1 {
-    font-size: 30px;
-    line-height: 1.2;
+    font-size: 24px !important;
+    line-height: 1.35 !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .hero-content p {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   /* ===== INFO BAR ===== */
   .info-bar {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 40px 20px;
-    margin-top: -60px;
+    grid-template-columns: 1fr !important;
+    padding: 28px 16px !important;
+    margin-top: -40px !important;
     width: 100%;
   }
 
   .info-item {
-    font-size: 18px;
+    font-size: 16px !important;
   }
 
   .info-item img {
-    width: 70px;
+    width: 56px !important;
   }
 
-  /* ===== SOBRE ===== */
-  .sobre-container {
-    grid-template-columns: 1fr;
-  }
-
-  .sobre-esquerda,
-  .sobre-direita {
-    padding: 30px 20px;
-  }
-
-  .sobre-esquerda h2 {
-    font-size: 28px;
-  }
-
-  .lista-servicos {
-    font-size: 18px;
-  }
-
-  /* ===== PORQUE ===== */
+  /* ===== SOBRE / PORQUE ===== */
+  .sobre-container,
   .porque-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-    font-size: 16px;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
 
   .porque-texto h2 {
-    font-size: 20px;
+    font-size: 18px !important;
   }
 
-  .porque-texto p {
-    font-size: 15px;
-  }
-
-  .porque-texto ul {
-    font-size: 16px;
-    text-align: left;
-    display: inline-block;
-  }
-
+  .porque-texto p,
   .porque-texto li {
-    font-size: 16px;
+    font-size: 14px !important;
+    line-height: 1.5;
   }
 
+  .btn-vantagens {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ===== IMAGEM ORGÂNICA ===== */
   .porque-imagem {
-    height: 300px;
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  .porque-imagem img {
+    height: auto;
+    border-radius: 16px !important;
+    object-fit: cover;
   }
 
   /* ===== VANTAGENS ===== */
   .vantagens-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
 
   .vantagens-card {
-    height: auto;
+    height: auto !important;
+    min-height: 260px;
+    border-radius: 16px;
+    overflow: hidden;
   }
 
   .vantagens-card-content {
-    padding: 35px 25px;
+    padding: 30px 20px !important;
   }
 
   .vantagens-card-content h2 {
-    font-size: 28px;
+    font-size: 22px !important;
+    line-height: 1.3;
   }
 
   .vantagens-lista h3 {
-    font-size: 20px;
-  }
-
-  .vantagens-lista ul {
-    text-align: left;
-    display: inline-block;
+    font-size: 18px !important;
   }
 
   .vantagens-lista li {
-    font-size: 16px;
+    font-size: 14px !important;
   }
 
   /* ===== MISSÃO / VISÃO / VALORES ===== */
-  .mv-section h2 {
-    font-size: 26px;
-  }
-
-  .mv-section h4 {
-    font-size: 16px;
-  }
-
-  .mv-texto {
-    font-size: 15px;
-    margin-bottom: 40px;
-  }
-
   .mv-cards {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .mv-card {
+    padding: 28px 20px;
   }
 
   .mv-card h3 {
-    font-size: 26px;
+    font-size: 22px !important;
   }
 
   .mv-card p {
-    font-size: 15px;
+    font-size: 14px !important;
   }
 
   /* ===== FOOTER ===== */
   .footer-container {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    grid-template-columns: 1fr !important;
+    gap: 28px;
     text-align: center;
   }
-
-  .footer-col h3 {
-    font-size: 16px;
-  }
-
-  .footer-col p,
-  .footer-col li {
-    font-size: 14px;
-  }
-
 }
-

@@ -2,7 +2,7 @@
 const scrollMap = {
   btn3: 'porque',     // Por que nos escolher?
   btn4: 'vantagens',  // Vantagens
-  btn5: 'missao'      // Nossa missão
+  btn5: 'missao'      
 };
 
 // Percorre o mapa e aplica o scroll
